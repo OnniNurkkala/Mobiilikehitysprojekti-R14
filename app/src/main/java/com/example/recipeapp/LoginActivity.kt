@@ -10,6 +10,10 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
+        if (supportActionBar != null) {
+            supportActionBar!!.hide()
+        }
+
         var loginButton: Button = findViewById(R.id.buLogin)
 
         loginButton.setOnClickListener {
