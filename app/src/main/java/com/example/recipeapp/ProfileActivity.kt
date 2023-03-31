@@ -5,54 +5,56 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import android.widget.ImageButton
+import android.widget.PopupMenu
 import android.widget.Toast
 import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
 
-class MainActivity : AppCompatActivity() {
-
+class ProfileActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_profile)
 
         //Menu definitions
-        val menuButton = findViewById<ImageButton>(R.id.buMenu)
+        val menuButton = findViewById<ImageButton>(R.id.buMenuProfile)
         val drawerLayout = findViewById<DrawerLayout>(R.id.drawerLayout)
         val navigationView = findViewById<NavigationView>(R.id.navView)
-        //Temporary buttons for navigating in the app
-        var homeButton: ImageButton = findViewById(R.id.homeButton)
-        var favoriteButton: ImageButton = findViewById(R.id.favoriteButton)
-        var profileButton: ImageButton = findViewById(R.id.profileButton)
-
+        //PopUpMenu definitions
+        val settingsButton = findViewById<ImageButton>(R.id.buSettings)
 
         //Hides actionbar
         if (supportActionBar != null) {
-           supportActionBar!!.hide()
+            supportActionBar!!.hide()
         }
 
-        // Menu button click listener
+        // HamburgerMenu button click listener
         menuButton.setOnClickListener {
             drawerLayout.openDrawer(navigationView)
         }
+        // PopUpMenu button click listener
+        settingsButton.setOnClickListener {
+            showPopUpMenu(settingsButton)
+        }
 
+    }
 
-        //Temporary buttons for navigating in the app
-        homeButton.setOnClickListener {
-            val intent = Intent(this, LoginActivity::class.java).apply {
+    // PopUpMenu function
+    private fun showPopUpMenu(view: View) {
+        val popupMenu = PopupMenu(this, view)
+        popupMenu.inflate(R.menu.pop_up_menu)
+
+        popupMenu.setOnMenuItemClickListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.deleteprofile -> {
+                    // Handle menu item 1 click
+                    true
+                }
+                else -> false
             }
-            startActivity(intent);
         }
-        favoriteButton.setOnClickListener {
-            val intent = Intent(this, StartScreenActivity::class.java).apply {
-            }
-            startActivity(intent);
-        }
-        profileButton.setOnClickListener{
-            val intent = Intent(this, ProfileActivity::class.java).apply {
-            }
-            startActivity(intent);
-        }
+        popupMenu.show()
     }
 
     //Inflate the hamburger menu
@@ -91,4 +93,3 @@ class MainActivity : AppCompatActivity() {
         }
     }
 }
-
