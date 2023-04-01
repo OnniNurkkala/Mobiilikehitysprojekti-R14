@@ -9,6 +9,7 @@ import android.view.View
 import android.widget.ImageButton
 import android.widget.PopupMenu
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
 
@@ -23,6 +24,9 @@ class ProfileActivity : AppCompatActivity() {
         val navigationView = findViewById<NavigationView>(R.id.navView)
         //PopUpMenu definitions
         val settingsButton = findViewById<ImageButton>(R.id.buSettings)
+
+
+
 
         //Hides actionbar
         if (supportActionBar != null) {
@@ -49,6 +53,20 @@ class ProfileActivity : AppCompatActivity() {
             when (menuItem.itemId) {
                 R.id.deleteprofile -> {
                     // Handle menu item 1 click
+                    val dialogBuilder = AlertDialog.Builder(this)
+                    dialogBuilder.setView(R.layout.delete_profile_dialog)
+                    dialogBuilder.setTitle("Delete profile")
+                    dialogBuilder.setMessage("Are you sure you want to delete this profile?")
+                    dialogBuilder.setPositiveButton("OK") { dialog, which ->
+                        // Handle OK button click here
+                        Toast.makeText(this, "Profile deleted", Toast.LENGTH_SHORT).show()
+                    }
+                    dialogBuilder.setNegativeButton("CANCEL") { dialog, which ->
+                        // Handle CANCEL button click here
+
+                    }
+                    val dialog = dialogBuilder.create()
+                    dialog.show()
                     true
                 }
                 else -> false
