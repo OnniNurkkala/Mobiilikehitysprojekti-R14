@@ -16,7 +16,7 @@
             android:id="@+id/imageView7"
             android:layout_width="match_parent"
             android:layout_height="522dp"
-            android:layout_marginTop="204dp"
+            android:layout_marginTop="216dp"
             android:clipToOutline="true"
             android:outlineProvider="background"
             android:scaleType="center"
@@ -28,13 +28,13 @@
 
         <ImageButton
             android:id="@+id/buEditUserName"
-            android:layout_width="16dp"
-            android:layout_height="16dp"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
             android:background="#00FFFFFF"
             android:scaleType="centerInside"
             app:layout_constraintBottom_toBottomOf="@+id/textViewUsername"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.89"
+            app:layout_constraintHorizontal_bias="0.83"
             app:layout_constraintStart_toEndOf="@+id/textViewUsername"
             app:layout_constraintTop_toTopOf="@+id/textViewUsername"
             app:layout_constraintVertical_bias="0.5"
@@ -42,39 +42,17 @@
 
         <ImageButton
             android:id="@+id/buEditPassword"
-            android:layout_width="16dp"
-            android:layout_height="16dp"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
             android:background="#00FFFFFF"
             android:scaleType="centerInside"
-            app:layout_constraintBottom_toBottomOf="@+id/textView10"
+            app:layout_constraintBottom_toBottomOf="@+id/textViewPassword"
             app:layout_constraintEnd_toEndOf="@+id/buEditUserName"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toEndOf="@+id/textView10"
-            app:layout_constraintTop_toTopOf="@+id/textView10"
+            app:layout_constraintHorizontal_bias="1"
+            app:layout_constraintStart_toEndOf="@+id/textViewPassword"
+            app:layout_constraintTop_toTopOf="@+id/textViewPassword"
             app:layout_constraintVertical_bias="0.5"
             app:srcCompat="@drawable/edit" />
-
-        <TextView
-            android:id="@+id/textViewUsername"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:text="Example"
-            android:textColor="#000000"
-            android:textSize="21sp"
-            app:layout_constraintStart_toStartOf="@+id/textView4"
-            app:layout_constraintTop_toBottomOf="@+id/textView4" />
-
-        <TextView
-            android:id="@+id/textView10"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:text="*********"
-            android:textColor="#000000"
-            android:textSize="21sp"
-            app:layout_constraintStart_toStartOf="@+id/textView6"
-            app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
         <ImageButton
             android:id="@+id/buMenuProfile"
@@ -162,11 +140,35 @@
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toTopOf="@+id/imageView7"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.863"
+            app:layout_constraintVertical_bias="0.85"
             app:srcCompat="@drawable/profilecircle" />
+
+        <TextView
+            android:id="@+id/textViewUsername"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="Usename"
+            android:textColor="#000000"
+            android:textSize="21sp"
+            app:layout_constraintStart_toStartOf="@+id/textView4"
+            app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+        <TextView
+            android:id="@+id/textViewPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:inputType="textPassword"
+            android:text="secretpassword"
+            android:textColor="#000000"
+            android:textSize="21sp"
+            app:layout_constraintStart_toStartOf="@+id/textView6"
+            app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

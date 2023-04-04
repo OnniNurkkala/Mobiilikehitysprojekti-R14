@@ -6,9 +6,7 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.widget.ImageButton
-import android.widget.PopupMenu
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
@@ -18,14 +16,17 @@ class ProfileActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile)
 
-        //Menu definitions
+        //HamburgerMenu definitions
         val menuButton = findViewById<ImageButton>(R.id.buMenuProfile)
         val drawerLayout = findViewById<DrawerLayout>(R.id.drawerLayout)
         val navigationView = findViewById<NavigationView>(R.id.navView)
         //PopUpMenu definitions
         val settingsButton = findViewById<ImageButton>(R.id.buSettings)
-
-
+        //Profile text edit definitions
+        val userNameEditButton = findViewById<ImageButton>(R.id.buEditUserName)
+        val userNameTextView = findViewById<TextView>(R.id.textViewUsername)
+        val passWordEditButton = findViewById<ImageButton>(R.id.buEditPassword)
+        val passWordTextView = findViewById<TextView>(R.id.textViewPassword)
 
 
         //Hides actionbar
@@ -40,6 +41,38 @@ class ProfileActivity : AppCompatActivity() {
         // PopUpMenu button click listener
         settingsButton.setOnClickListener {
             showPopUpMenu(settingsButton)
+        }
+        // Profile name edit button listener
+        userNameEditButton.setOnClickListener {
+            val builder = AlertDialog.Builder(this)
+            builder.setTitle("Change username")
+            val input = EditText(this)
+            input.setText(userNameTextView.text)
+            builder.setView(input)
+            builder.setPositiveButton("OK") { dialog, which ->
+                userNameTextView.text = input.text.toString()
+                Toast.makeText(this, "Username changed", Toast.LENGTH_SHORT).show()
+            }
+            builder.setNegativeButton("Cancel") { dialog, which ->
+                dialog.cancel()
+            }
+            builder.show()
+        }
+        // Profile password edit button listener
+        passWordEditButton.setOnClickListener {
+            val builder = AlertDialog.Builder(this)
+            builder.setTitle("Enter new password")
+            val input = EditText(this)
+            input.setText("")
+            builder.setView(input)
+            builder.setPositiveButton("OK") { dialog, which ->
+                    passWordTextView.text = input.text.toString()
+                    Toast.makeText(this, "Password changed", Toast.LENGTH_SHORT).show()
+            }
+            builder.setNegativeButton("Cancel") { dialog, which ->
+                dialog.cancel()
+            }
+            builder.show()
         }
 
     }
@@ -63,7 +96,7 @@ class ProfileActivity : AppCompatActivity() {
                     }
                     dialogBuilder.setNegativeButton("CANCEL") { dialog, which ->
                         // Handle CANCEL button click here
-
+                        dialog.cancel()
                     }
                     val dialog = dialogBuilder.create()
                     dialog.show()
@@ -80,7 +113,6 @@ class ProfileActivity : AppCompatActivity() {
         menuInflater.inflate(R.menu.menu, menu)
         return true
     }
-
     //Click event handlers for hamburger menu items
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
