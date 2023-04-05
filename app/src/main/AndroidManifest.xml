@@ -12,6 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RecipeApp"
         tools:targetApi="31">
+
         <activity
             android:name=".StartScreenActivity"
             android:exported="false">
