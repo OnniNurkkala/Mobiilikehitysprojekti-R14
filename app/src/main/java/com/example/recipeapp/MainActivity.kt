@@ -5,10 +5,12 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import android.widget.ImageButton
 import android.widget.Toast
 import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
+import kotlinx.android.synthetic.main.activity_login.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -89,6 +91,22 @@ class MainActivity : AppCompatActivity() {
             }
             else -> return super.onOptionsItemSelected(item)
         }
+    }
+
+    fun saveRecord(view: View){
+        val name = editTextUsername.text.toString()
+        val pass = editTextTextPassword.text.toString()
+        val databaseHandler: DatabaseHandler = DatabaseHandler(this)
+        if (name.trim()!="" && pass.trim()!=""){
+            val status = databaseHandler.addUser(EmpModelClass(1,name,pass))
+            if(status > -1){
+                Toast.makeText(applicationContext, "Saved!", Toast.LENGTH_SHORT).show()
+                editTextUsername.text.clear()
+            }
+        }else {
+            Toast.makeText(applicationContext, "Username or password can't be blank!", Toast.LENGTH_SHORT).show()
+        }
+
     }
 }
 
