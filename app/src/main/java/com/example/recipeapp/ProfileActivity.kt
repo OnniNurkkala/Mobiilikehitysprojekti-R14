@@ -92,14 +92,14 @@ class ProfileActivity : AppCompatActivity() {
                     dialogBuilder.setMessage("Are you sure you want to delete this profile?")
                     dialogBuilder.setPositiveButton("OK") { dialog, which ->
                         // Handle OK button click here
-                        val deleteId = "1"
+                        /*val deleteId = "1"
                         val databaseHandler: DatabaseHandler = DatabaseHandler(this)
                         val status = databaseHandler.deleteUser(EmpModelClass(Integer.parseInt(deleteId),"",""))
                         if(status > -1){
                             Toast.makeText(applicationContext,"record deleted",Toast.LENGTH_LONG).show()
                         }else{
                             Toast.makeText(applicationContext,"no work",Toast.LENGTH_LONG).show()
-                        }
+                        }*/
                     }
                     dialogBuilder.setNegativeButton("CANCEL") { dialog, which ->
                         // Handle CANCEL button click here
