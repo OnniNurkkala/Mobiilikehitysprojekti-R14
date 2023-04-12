@@ -106,7 +106,7 @@ class MainActivity : AppCompatActivity() {
             else -> return super.onOptionsItemSelected(item)
         }
     }
-
+//hehe xd
 
     fun saveRecord(view: View){
         val name = editTextUsername.text.toString()
