@@ -98,7 +98,7 @@ class MainActivity : AppCompatActivity() {
         val pass = editTextTextPassword.text.toString()
         val databaseHandler: DatabaseHandler = DatabaseHandler(this)
         if (name.trim()!="" && pass.trim()!=""){
-            val status = databaseHandler.addUser(EmpModelClass(1,name,pass))
+            val status = databaseHandler.addUser(EmpModelClass(name,pass))
             if(status > -1){
                 Toast.makeText(applicationContext, "Saved!", Toast.LENGTH_SHORT).show()
                 editTextUsername.text.clear()
@@ -108,5 +108,25 @@ class MainActivity : AppCompatActivity() {
         }
 
     }
+
+    fun saveRecipe(view: View){
+        val recipename = editTextUsername.text.toString()
+        val recipeinfo = editTextTextPassword.text.toString()
+        val databaseHandler: DatabaseHandler = DatabaseHandler(this)
+    }
+
+    fun deleteRecord(view: View){
+        val userID = editTextUserID.text.toString().toInt()
+        val databaseHandler: DatabaseHandler = DatabaseHandler(this)
+        val status = databaseHandler.deleteUser(userID)
+        if(status > -1) {
+            Toast.makeText(applicationContext, "Record deleted successfully!", Toast.LENGTH_SHORT).show()
+            editTextUserID.text.clear()
+        } else {
+            Toast.makeText(applicationContext, "Error deleting record!", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+
 }
 
