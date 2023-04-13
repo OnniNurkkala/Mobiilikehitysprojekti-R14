@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="recipe_tuna_name">Herkullinen tonnikala pasta</string>
+    <string name="recipe_tuna_ingredients">
+        AINESOSAT\n\n
+        1 tölkki tonnikalaa\n\n
+        1/2 sipuli\n\n
+        2 valkosipulin kynttä\n\n
+        1/2 dl kermaa\n\n
+        1 rkl oliiviöljyä\n\n
+        suolaa ja pippuria\n\n
+    </string>
+    <string name="recipe_tuna_steps">
+        VALMISTUSOHJE\n\n
+        1. Keitä pasta suolatussa vedessä.\n\n
+        2. Pilko sipuli ja valkosipuli ja kuullota ne oliiviöljyssä.\n\n
+        3. Lisää tonnikala ja kerma sipulin ja valkosipulin joukkoon.\n\n
+        4. Sekoita keitetty pasta seokseen.\n\n
+        5. Lisää suolaa ja pippuria maun mukaan.\n\n
+    </string>
+
+    <string name="recipe_nacho_name">Herkullinen tonnikala pasta</string>
+    <string name="recipe_nacho_ingredients">
+        AINESOSAT\n\n
+        2 rkl rypsiöljyä\n\n
+        200g jauhelihaa\n\n
+        2 valkosipulinkynttä hienonnettuna\n\n
+        1 rkl taco- tai burritomaustetta\n\n
+        1 sipuli lohkoina tai silputtuna\n\n
+        puolikas paprika paloiteltuna\n\n
+        10 cm pala kesäkurpitsaa paloiteltuna\n\n
+        200-300g tomaattimurskaa tai salsakastiketta\n\n
+        n. 100g nachoja tai maun mukaan\n\n
+        100g juustoraastetta\n\n
+    </string>
+    <string name="recipe_nacho_steps">
+        VALMISTUSOHJE\n\n
+        1.  Kuumenna öljy pannussa.\n\n
+        2.  Paista jauheliha kauttaaltaan\n\n
+        3.  Mausta hienonnetulla valkosipulilla ja taco- tai burritomausteella\n\n
+        4.  Lisää sipulilohkot tai silputtu sipul, sekä paprikapalat ja kesäkurpitsa\n\n
+        5.  kääntele hetki\n\n
+        6.  Kaada joukkoon tomaattimurska tai salsakastike\n\n
+        7.  Kuumenna ja tarkista maku\n\n
+        8.  Jaa kastikse ja nachot kerroksittain uunivuokaan\n\n
+        9.  Ripottele pinnalle juustoraastetta\n\n
+        10. Kuumenna uunissa 200-asteessa, kunnes juusto sulaa
+        11. Tarjoile smetanan tai ranskankerman kanssa
+    </string>
+</resources>

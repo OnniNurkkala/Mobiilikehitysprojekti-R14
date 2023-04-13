@@ -12,6 +12,7 @@ class RecipeActivity : AppCompatActivity() {
         val recipeNameTextView = findViewById<TextView>(R.id.recipe_name)
         val recipeIngredientsTextView = findViewById<TextView>(R.id.recipe_ingredients)
         val recipeStepsTextView = findViewById<TextView>(R.id.recipe_steps)
+
         val recipeName = intent.getStringExtra("recipe_name")
         val recipeIngredients = intent.getStringExtra("recipe_ingredients")
         val recipeSteps = intent.getStringExtra("recipe_steps")

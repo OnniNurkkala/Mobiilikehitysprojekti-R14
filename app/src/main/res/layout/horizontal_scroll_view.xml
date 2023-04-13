@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <HorizontalScrollView
+        android:id="@+id/horizontalScrollView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="175dp"
+                android:layout_height="167dp"
+                android:layout_marginRight="32dp"
+                android:layout_marginLeft="16dp">
+
+                <ImageView
+                    android:id="@+id/tuna"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:scaleType="fitXY"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/rectangle" />
+
+                <TextView
+                    android:id="@+id/tunaText"
+                    android:layout_width="147dp"
+                    android:layout_height="88dp"
+                    android:text="Herkullinen tonnikala pasta"
+                    android:textAlignment="center"
+                    android:textColor="#000000"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/tuna"
+                    app:layout_constraintEnd_toEndOf="@+id/tuna"
+                    app:layout_constraintStart_toStartOf="@+id/tuna"
+                    app:layout_constraintTop_toTopOf="@+id/tuna"
+                    app:layout_constraintVertical_bias="0.5" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="175dp"
+                android:layout_height="167dp"
+                android:layout_marginRight="32dp">
+
+                <ImageView
+                    android:id="@+id/nacho"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:scaleType="fitXY"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/rectangle" />
+
+                <TextView
+                    android:id="@+id/nachoText"
+                    android:layout_width="147dp"
+                    android:layout_height="88dp"
+                    android:text="Jauheliha nachopaistos"
+                    android:textAlignment="center"
+                    android:textColor="#000000"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/nacho"
+                    app:layout_constraintEnd_toEndOf="@+id/nacho"
+                    app:layout_constraintStart_toStartOf="@+id/nacho"
+                    app:layout_constraintTop_toTopOf="@+id/nacho"
+                    app:layout_constraintVertical_bias="0.5" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="175dp"
+                android:layout_height="167dp"
+                android:layout_marginRight="32dp">
+
+                <ImageView
+                    android:id="@+id/noodle"
+                    android:layout_width="175dp"
+                    android:layout_height="167dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintVertical_bias="0.305"
+                    app:srcCompat="@drawable/rectangle" />
+
+                <TextView
+                    android:id="@+id/noodleText"
+                    android:layout_width="147dp"
+                    android:layout_height="88dp"
+                    android:text="Broileri nuudelikeitto"
+                    android:textAlignment="center"
+                    android:textColor="#000000"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/noodle"
+                    app:layout_constraintEnd_toEndOf="@+id/noodle"
+                    app:layout_constraintHorizontal_bias="0.392"
+                    app:layout_constraintStart_toStartOf="@+id/noodle"
+                    app:layout_constraintTop_toTopOf="@+id/noodle"
+                    app:layout_constraintVertical_bias="0.518" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="175dp"
+                android:layout_height="167dp"
+                android:layout_marginRight="32dp">
+
+                <ImageView
+                    android:id="@+id/omelette"
+                    android:layout_width="175dp"
+                    android:layout_height="167dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintVertical_bias="0.305"
+                    app:srcCompat="@drawable/rectangle" />
+
+                <TextView
+                    android:id="@+id/omeletteText"
+                    android:layout_width="147dp"
+                    android:layout_height="88dp"
+                    android:text="Ruokaisa munakas"
+                    android:textAlignment="center"
+                    android:textColor="#000000"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/omelette"
+                    app:layout_constraintEnd_toEndOf="@+id/omelette"
+                    app:layout_constraintHorizontal_bias="0.392"
+                    app:layout_constraintStart_toStartOf="@+id/omelette"
+                    app:layout_constraintTop_toTopOf="@+id/omelette"
+                    app:layout_constraintVertical_bias="0.518" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+
+    </HorizontalScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
