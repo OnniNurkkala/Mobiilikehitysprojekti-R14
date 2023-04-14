@@ -31,11 +31,15 @@ class MainActivity : AppCompatActivity() {
 
         noodleText.setOnClickListener {
             val intent = RecipeIntentFactory.createIntent(this, "Broileri-nuudelikeitto")
+            intent.putExtra("recipe_ingredients", getString(R.string.recipe_broiler_ingredients))
+            intent.putExtra("recipe_steps", getString(R.string.recipe_broiler_steps))
             startActivity(intent)
         }
 
         omeletteText.setOnClickListener {
             val intent = RecipeIntentFactory.createIntent(this, "Ruokaisa munakas")
+            intent.putExtra("recipe_ingredients", getString(R.string.recipe_omelette_ingredients))
+            intent.putExtra("recipe_steps", getString(R.string.recipe_omelette_steps))
             startActivity(intent)
         }
     }
