@@ -43,7 +43,7 @@ class LoginActivity : AppCompatActivity() {
             if (TextUtils.isEmpty(usertx) || TextUtils.isEmpty(pwordtx)) {
                 Toast.makeText(this, "Add Username & Password", Toast.LENGTH_SHORT).show()
             } else {
-                val checkuser = dbh.checkuserpass(usertx, pwordtx)
+                val checkuser = dbh.checkuserpass(EmpModelClass(usertx, pwordtx))
                 if (checkuser == true) {
                     Toast.makeText(this, "Login Successful", Toast.LENGTH_SHORT).show()
                     val intent = Intent(applicationContext, MainActivity::class.java)

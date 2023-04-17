@@ -40,7 +40,7 @@ class Signup : AppCompatActivity() {
             val unametext = uname.text.toString()
             val pwordtext = pword.text.toString()
             val cpwordtext = cpword.text.toString()
-            val savedata = db.insertdata(unametext, pwordtext)
+            val savedata = db.insertdata(EmpModelClass(unametext,pwordtext))
 
 
             if (TextUtils.isEmpty(unametext) || TextUtils.isEmpty(pwordtext) || TextUtils.isEmpty(cpwordtext)){
@@ -48,12 +48,12 @@ class Signup : AppCompatActivity() {
             }
             else{
                 if (pwordtext.equals(cpwordtext)){
-                    if (savedata==true){
+                    if (savedata != -1L) {
                         Toast.makeText(this, "Signup Successful", Toast.LENGTH_SHORT).show()
                         val intent = Intent(applicationContext, LoginActivity::class.java)
                         startActivity(intent)
                     }
-                    else{
+                    else {
                         Toast.makeText(this, "Username Exists", Toast.LENGTH_SHORT).show()
                     }
                 }
