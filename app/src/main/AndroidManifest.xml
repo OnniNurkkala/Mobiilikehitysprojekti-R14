@@ -14,10 +14,6 @@
         tools:targetApi="31">
 
         <activity
-<<<<<<< HEAD
-            android:name=".MainActivity"
-            android:exported="false" />
-        <activity
             android:name=".Signup"
             android:exported="false">
         <meta-data
@@ -25,8 +21,6 @@
             android:value="" />
         </activity>
         <activity
-            android:name=".StartScreenActivity"
-=======
             android:name=".ProfileActivity"
             android:exported="false">
             <meta-data
@@ -35,7 +29,6 @@
         </activity>
         <activity
             android:name=".MainActivity"
->>>>>>> origin/develop
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -44,8 +37,6 @@
 
         <activity
             android:name=".LoginActivity"
-<<<<<<< HEAD
-=======
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -53,7 +44,6 @@
         </activity>
         <activity
             android:name=".StartScreenActivity"
->>>>>>> origin/develop
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

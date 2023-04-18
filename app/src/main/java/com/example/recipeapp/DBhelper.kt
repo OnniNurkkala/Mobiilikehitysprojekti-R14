@@ -46,8 +46,8 @@ class DBhelper(context: Context): SQLiteOpenHelper(context,DATABASE_NAME,null,DA
         val db = this.writableDatabase
         val contentValues = ContentValues()
         contentValues.put(KEY_RECIPE_NAME, recipe.recipeName)
-        //contentValues.put(KEY_RECIPE_INGREDIENTS, recipe.recipe_ing)
-        //contentValues.put(KEY_RECIPE_INSTRUCTIONS, recipe.recipe_inst)
+        contentValues.put(KEY_RECIPE_INGREDIENTS, recipe.recipe_ing)
+        contentValues.put(KEY_RECIPE_INSTRUCTIONS, recipe.recipe_inst)
         val success = db.insert(TABLE_RECIPES, null, contentValues)
         db.close()
         return success
@@ -88,8 +88,8 @@ class DBhelper(context: Context): SQLiteOpenHelper(context,DATABASE_NAME,null,DA
         val db = this.writableDatabase
         val contentValues = ContentValues()
         contentValues.put(KEY_RECIPE_NAME, recipe.recipeName)
-        //contentValues.put(KEY_RECIPE_INGREDIENTS, recipe.recipe_ing)
-        //contentValues.put(KEY_RECIPE_INSTRUCTIONS, recipe.recipe_inst)
+        contentValues.put(KEY_RECIPE_INGREDIENTS, recipe.recipe_ing)
+        contentValues.put(KEY_RECIPE_INSTRUCTIONS, recipe.recipe_inst)
         val success = db.update(TABLE_RECIPES, contentValues, "recipe"+ recipe.recipeName, null)
         db.close()
         return success
