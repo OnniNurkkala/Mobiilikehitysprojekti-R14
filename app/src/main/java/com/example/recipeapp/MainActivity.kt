@@ -18,7 +18,7 @@ import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.delete_profile_dialog.*
-
+import android.widget.TextView
 
 class MainActivity : AppCompatActivity() {
 
@@ -29,8 +29,7 @@ class MainActivity : AppCompatActivity() {
         //delete function
         if (intent?.action == "DELETE_RECORD") {
             val intValue = intent.getIntExtra("int_value", 0)
-            deleteRecord(intValue)
-
+            //deleteRecord(intValue)
         }
         //Menu definitions
         val menuButton = findViewById<ImageButton>(R.id.buMenu)
@@ -101,15 +100,46 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, ProfileActivity::class.java).apply {
             }
             startActivity(intent);
+        val tunaText = findViewById<TextView>(R.id.tunaText)
+        val nachoText = findViewById<TextView>(R.id.nachoText)
+        val noodleText = findViewById<TextView>(R.id.noodleText)
+        val omeletteText = findViewById<TextView>(R.id.omeletteText)
+
+        tunaText.setOnClickListener {
+            val intent = RecipeIntentFactory.createIntent(this, "Herkullinen tonnikala pasta")
+            intent.putExtra("recipe_ingredients", getString(R.string.recipe_tuna_ingredients))
+            intent.putExtra("recipe_steps", getString(R.string.recipe_tuna_steps))
+            startActivity(intent)
+        }
+
+        nachoText.setOnClickListener {
+            val intent = RecipeIntentFactory.createIntent(this, "Jauheliha-nachopaistos")
+            intent.putExtra("recipe_ingredients", getString(R.string.recipe_nacho_ingredients))
+            intent.putExtra("recipe_steps", getString(R.string.recipe_nacho_steps))
+            startActivity(intent)
+        }
+
+        noodleText.setOnClickListener {
+            val intent = RecipeIntentFactory.createIntent(this, "Broileri-nuudelikeitto")
+            intent.putExtra("recipe_ingredients", getString(R.string.recipe_broiler_ingredients))
+            intent.putExtra("recipe_steps", getString(R.string.recipe_broiler_steps))
+            startActivity(intent)
+        }
+
+        omeletteText.setOnClickListener {
+            val intent = RecipeIntentFactory.createIntent(this, "Ruokaisa munakas")
+            intent.putExtra("recipe_ingredients", getString(R.string.recipe_omelette_ingredients))
+            intent.putExtra("recipe_steps", getString(R.string.recipe_omelette_steps))
+            startActivity(intent)
         }
     }
 
     //Inflate the hamburger menu
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+    fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu, menu)
         return true
     }
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+    fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.favoriteItem -> {
                 Toast.makeText(this, "Favorite selected", Toast.LENGTH_SHORT).show()
@@ -180,6 +210,7 @@ class MainActivity : AppCompatActivity() {
         }
 
     }
+}
 }
 
 
