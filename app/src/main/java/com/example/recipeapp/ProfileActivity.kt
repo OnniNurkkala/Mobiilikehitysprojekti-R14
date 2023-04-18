@@ -39,6 +39,32 @@ class ProfileActivity : AppCompatActivity() {
         menuButton.setOnClickListener {
             drawerLayout.openDrawer(navigationView)
         }
+
+        // Menu item click listeners
+        navigationView.setNavigationItemSelectedListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.userItem -> {
+                    // Handle click for first menu item
+                    val intent = Intent(this, ProfileActivity::class.java)
+                    startActivity(intent)
+                    true
+                }
+                R.id.favoriteItem -> {
+                    val intent = Intent(this, LoginActivity::class.java).apply {
+                    }
+                    startActivity(intent);
+                    true
+                }
+                R.id.homeItem -> {
+                    val intent = Intent(this, StartScreenActivity::class.java).apply {
+                    }
+                    startActivity(intent);
+                    true
+                }
+                else -> false
+            }
+        }
+
         // PopUpMenu button click listener
         settingsButton.setOnClickListener {
             showPopUpMenu(settingsButton)
@@ -113,42 +139,5 @@ class ProfileActivity : AppCompatActivity() {
             }
         }
         popupMenu.show()
-    }
-
-
-
-    //Inflate the hamburger menu
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.menu, menu)
-        return true
-    }
-    //Click event handlers for hamburger menu items
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            R.id.favoriteItem -> {
-                Toast.makeText(this, "Favorite selected", Toast.LENGTH_SHORT).show()
-
-                val intent = Intent(this, LoginActivity::class.java).apply {
-                }
-                startActivity(intent);
-                return true
-            }
-            R.id.userItem -> {
-                Toast.makeText(this, "User selected", Toast.LENGTH_SHORT).show()
-
-                val intent = Intent(this, StartScreenActivity::class.java)
-                startActivity(intent)
-                return true
-            }
-            R.id.homeItem -> {
-                Toast.makeText(this, "Home selected", Toast.LENGTH_SHORT).show()
-
-                val intent = Intent(this, StartScreenActivity::class.java).apply {
-                }
-                startActivity(intent);
-                return true
-            }
-            else -> return super.onOptionsItemSelected(item)
-        }
     }
 }
