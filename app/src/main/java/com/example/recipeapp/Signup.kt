@@ -29,6 +29,11 @@ class Signup : AppCompatActivity() {
         db = DBhelper(this)
         val login = findViewById<TextView>(R.id.textLogin1)
 
+        if (supportActionBar != null) {
+            supportActionBar!!.hide()
+        }
+
+
         login.setOnClickListener{
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
