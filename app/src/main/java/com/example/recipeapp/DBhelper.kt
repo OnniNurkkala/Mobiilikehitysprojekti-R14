@@ -29,7 +29,7 @@ class DBhelper(context: Context): SQLiteOpenHelper(context,DATABASE_NAME,null,DA
         db?.execSQL(CREATE_CONTACTS_TABLE)
 
         val CREATE_RECIPES_TABLE = ("CREATE TABLE " + TABLE_RECIPES + "("
-                + KEY_RECIPE_ID + " INTEGER PRIMARY KEY,"
+                + KEY_RECIPE_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
                 + KEY_RECIPE_NAME + " TEXT,"
                 + KEY_RECIPE_INGREDIENTS + " TEXT,"
                 + KEY_RECIPE_INSTRUCTIONS + " TEXT"
@@ -41,6 +41,16 @@ class DBhelper(context: Context): SQLiteOpenHelper(context,DATABASE_NAME,null,DA
         //  TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
         db!!.execSQL("DROP TABLE IF EXISTS " + TABLE_CONTACTS)
         onCreate(db)
+    }
+    fun addRecipe(recipe: RecipeClass): Long {
+        val db = this.writableDatabase
+        val contentValues = ContentValues()
+        contentValues.put(KEY_RECIPE_NAME, recipe.recipeName)
+        //contentValues.put(KEY_RECIPE_INGREDIENTS, recipe.recipe_ing)
+        //contentValues.put(KEY_RECIPE_INSTRUCTIONS, recipe.recipe_inst)
+        val success = db.insert(TABLE_RECIPES, null, contentValues)
+        db.close()
+        return success
     }
     fun insertdata(emp: EmpModelClass):Long {
         val db = this.writableDatabase
@@ -63,4 +73,33 @@ class DBhelper(context: Context): SQLiteOpenHelper(context,DATABASE_NAME,null,DA
         cursor.close()
         return true
     }
+
+    fun udpateUser(emp: EmpModelClass):Int {
+        val db = this.writableDatabase
+        val contentValues = ContentValues()
+        contentValues.put(KEY_NAME, emp.userName)
+        contentValues.put(KEY_PASS, emp.userPassword)
+        val success = db.update(TABLE_CONTACTS, contentValues, "name"+emp.userName, null)
+        db.close()
+        return success
+    }
+
+    fun updateRecipe(recipe: RecipeClass): Int {
+        val db = this.writableDatabase
+        val contentValues = ContentValues()
+        contentValues.put(KEY_RECIPE_NAME, recipe.recipeName)
+        //contentValues.put(KEY_RECIPE_INGREDIENTS, recipe.recipe_ing)
+        //contentValues.put(KEY_RECIPE_INSTRUCTIONS, recipe.recipe_inst)
+        val success = db.update(TABLE_RECIPES, contentValues, "recipe"+ recipe.recipeName, null)
+        db.close()
+        return success
+    }
+
+    fun deleteUser(userID: Int): Int {
+        val db = this.writableDatabase
+        val success = db.delete(TABLE_CONTACTS, "${KEY_ID} = ?", arrayOf(userID.toString()))
+        db.close()
+        return success
+    }
+
 }

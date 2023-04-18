@@ -5,10 +5,12 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
 import android.text.method.LinkMovementMethod
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+
 
 
 class LoginActivity : AppCompatActivity() {
@@ -28,6 +30,13 @@ class LoginActivity : AppCompatActivity() {
         editpword = findViewById(R.id.editTextTextPassword)
         dbh = DBhelper(this)
        val signup = findViewById<TextView>(R.id.textSignUp)
+
+        if (supportActionBar != null) {
+            supportActionBar!!.hide()
+        }
+
+        var loginButton: Button = findViewById(R.id.buLogin)
+
 
         signup.setOnClickListener{
             val intent = Intent(this, Signup::class.java)
@@ -54,4 +63,5 @@ class LoginActivity : AppCompatActivity() {
             }
         }
     }
+
 }

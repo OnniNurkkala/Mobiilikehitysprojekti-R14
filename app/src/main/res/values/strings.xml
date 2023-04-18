@@ -2,5 +2,10 @@
 <resources>
 
     <string name="app_name">RecipeApp</string>
+<<<<<<< HEAD
 
+=======
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+>>>>>>> origin/develop
 </resources>
