@@ -140,7 +140,7 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(applicationContext, "Tallennettu", Toast.LENGTH_SHORT).show()
             }
         }else {
-            Toast.makeText(applicationContext, "Texts can't be blank!", Toast.LENGTH_SHORT).show()
+            Toast.makeText(applicationContext, "Texts can't be blank", Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -148,10 +148,10 @@ class MainActivity : AppCompatActivity() {
         val databaseHandler: DatabaseHandler = DatabaseHandler(this)
         val status = databaseHandler.deleteUser(userID)
         if(status > -1) {
-            Toast.makeText(applicationContext, "Poistettu!", Toast.LENGTH_SHORT).show()
+            Toast.makeText(applicationContext, "Poistettu", Toast.LENGTH_SHORT).show()
             IdDelete.text.clear()
         } else {
-            Toast.makeText(applicationContext, "Virhe tapahtui!", Toast.LENGTH_SHORT).show()
+            Toast.makeText(applicationContext, "Virhe tapahtui", Toast.LENGTH_SHORT).show()
         }
     }
 }
