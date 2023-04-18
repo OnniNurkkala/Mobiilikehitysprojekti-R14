@@ -13,6 +13,7 @@ import android.widget.Toast
 import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.activity_login.*
+import kotlinx.android.synthetic.main.delete_profile_dialog.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -20,6 +21,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        //delete function
+        if (intent?.action == "DELETE_RECORD") {
+            val intValue = intent.getIntExtra("int_value", 0)
+            deleteRecord(intValue)
+        }
         //Menu definitions
         val menuButton = findViewById<ImageButton>(R.id.buMenu)
         val drawerLayout = findViewById<DrawerLayout>(R.id.drawerLayout)
@@ -124,22 +130,30 @@ class MainActivity : AppCompatActivity() {
 
 
     fun saveRecipe(view: View){
-        val recipename = editTextUsername.text.toString()
-        val recipeinfo = editTextTextPassword.text.toString()
+        val recipeName = editTextUsername.text.toString()
+        val recipe_ing = editTextTextPassword.text.toString()
+        val recipe_inst = editTextUsername.text.toString()
         val databaseHandler: DatabaseHandler = DatabaseHandler(this)
+        if (recipeName.trim()!="" && recipe_ing.trim()!="" && recipe_inst.trim()!=""){
+            val status = databaseHandler.addRecipe(RecipeClass(recipeName,recipe_ing,recipe_inst))
+            if (status > -1){
+                Toast.makeText(applicationContext, "Saved!", Toast.LENGTH_SHORT).show()
+            }
+        }else {
+            Toast.makeText(applicationContext, "Texts can't be blank!", Toast.LENGTH_SHORT).show()
+        }
     }
 
-    /*fun deleteRecord(view: View){
-        val userID = editTextUserID.text.toString().toInt()
+    fun deleteRecord(userID: Int){
         val databaseHandler: DatabaseHandler = DatabaseHandler(this)
         val status = databaseHandler.deleteUser(userID)
         if(status > -1) {
             Toast.makeText(applicationContext, "Record deleted successfully!", Toast.LENGTH_SHORT).show()
-            editTextUserID.text.clear()
+            IdDelete.text.clear()
         } else {
             Toast.makeText(applicationContext, "Error deleting record!", Toast.LENGTH_SHORT).show()
         }
-    }*/
+    }
 }
 
 

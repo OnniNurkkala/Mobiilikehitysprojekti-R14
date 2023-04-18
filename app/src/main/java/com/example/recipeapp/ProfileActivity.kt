@@ -10,6 +10,7 @@ import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
+import kotlinx.android.synthetic.main.delete_profile_dialog.*
 
 class ProfileActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -92,14 +93,13 @@ class ProfileActivity : AppCompatActivity() {
                     dialogBuilder.setMessage("Are you sure you want to delete this profile?")
                     dialogBuilder.setPositiveButton("OK") { dialog, which ->
                         // Handle OK button click here
-                        /*val deleteId = "1"
-                        val databaseHandler: DatabaseHandler = DatabaseHandler(this)
-                        val status = databaseHandler.deleteUser(EmpModelClass(Integer.parseInt(deleteId),"",""))
-                        if(status > -1){
-                            Toast.makeText(applicationContext,"record deleted",Toast.LENGTH_LONG).show()
-                        }else{
-                            Toast.makeText(applicationContext,"no work",Toast.LENGTH_LONG).show()
-                        }*/
+                        val userInput = findViewById<EditText>(R.id.IdDelete).text.toString()
+                        val intValue = userInput.toInt()
+                        val intent = Intent(this, MainActivity::class.java)
+                        intent.putExtra("int_value", intValue)
+                        intent.setClass(this, MainActivity::class.java)
+                        intent.action = "DELETE_RECORD"
+                        startActivity(intent)
                     }
                     dialogBuilder.setNegativeButton("CANCEL") { dialog, which ->
                         // Handle CANCEL button click here

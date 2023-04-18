@@ -10,7 +10,7 @@ import android.database.sqlite.SQLiteOpenHelper
 class DatabaseHandler(context: Context): SQLiteOpenHelper(context,DATABASE_NAME,null,DATABASE_VERSION) {
     companion object {
         private val DATABASE_VERSION = 1
-        private val DATABASE_NAME = "UserDatabase"
+        private val DATABASE_NAME = "AppDatabase"
         private val TABLE_CONTACTS = "UserTable"
         private val TABLE_RECIPES = "RecipeTable"
         private val KEY_RECIPE_ID = "recipe_id"
@@ -26,7 +26,7 @@ class DatabaseHandler(context: Context): SQLiteOpenHelper(context,DATABASE_NAME,
         // TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
         //creating table with fields
         val CREATE_CONTACTS_TABLE = ("CREATE TABLE " + TABLE_CONTACTS + "("
-                + KEY_ID + "INTEGER PRIMARY KEY AUTOINCREMENT,"+ KEY_NAME + " TEXT," + KEY_PASS + " TEXT" + ")")
+                + KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"+ KEY_NAME + " TEXT," + KEY_PASS + " TEXT" + ")")
         db?.execSQL(CREATE_CONTACTS_TABLE)
 
         val CREATE_RECIPES_TABLE = ("CREATE TABLE " + TABLE_RECIPES + "("
@@ -43,6 +43,7 @@ class DatabaseHandler(context: Context): SQLiteOpenHelper(context,DATABASE_NAME,
         db!!.execSQL("DROP TABLE IF EXISTS " + TABLE_CONTACTS)
         onCreate(db)
     }
+
 
 
     fun addRecipe(recipe: RecipeClass): Long {
@@ -116,4 +117,5 @@ class DatabaseHandler(context: Context): SQLiteOpenHelper(context,DATABASE_NAME,
         db.close()
         return success
     }
+
 }
