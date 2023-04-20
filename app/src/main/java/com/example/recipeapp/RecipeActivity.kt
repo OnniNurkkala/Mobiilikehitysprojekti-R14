@@ -9,7 +9,7 @@ class RecipeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_recipe)
 
-        // Get references to the views in the activity
+        // Get references to the views in the activity.
         val recipeNameTextView = findViewById<TextView>(R.id.recipe_name)
         val recipeIngredientsTextView = findViewById<TextView>(R.id.recipe_ingredients)
         val recipeStepsTextView = findViewById<TextView>(R.id.recipe_steps)
