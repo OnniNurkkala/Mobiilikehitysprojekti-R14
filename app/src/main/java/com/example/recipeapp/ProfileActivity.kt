@@ -56,7 +56,7 @@ class ProfileActivity : AppCompatActivity() {
                     true
                 }
                 R.id.homeItem -> {
-                    val intent = Intent(this, StartScreenActivity::class.java).apply {
+                    val intent = Intent(this, MainActivity::class.java).apply {
                     }
                     startActivity(intent);
                     true

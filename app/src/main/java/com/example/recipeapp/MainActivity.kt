@@ -1,11 +1,9 @@
 package com.example.recipeapp
 
-import android.content.ClipData.Item
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
 import kotlinx.android.synthetic.main.activity_login.*
 import android.view.*
 import android.widget.PopupWindow
@@ -13,10 +11,8 @@ import android.widget.ImageButton
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
-import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
-import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.delete_profile_dialog.*
 import android.widget.TextView
 
@@ -74,12 +70,23 @@ class MainActivity : AppCompatActivity() {
             val intValue = intent.getIntExtra("int_value", 0)
             //deleteRecord(intValue)
         }
+
+
+        //Button for navigating to RecipeAddActivity
+        val recipeAddButton = findViewById<ImageButton>(R.id.buRecipeAdd)
+        recipeAddButton.setOnClickListener{
+            val intent = Intent(this, RecipeAddActivity::class.java)
+            startActivity(intent)
+        }
+
+
+
         //Menu definitions
-        val menuButton = findViewById<ImageButton>(R.id.buMenu)
+        val menuButton = findViewById<ImageButton>(R.id.buMenuRecipe)
         val drawerLayout = findViewById<DrawerLayout>(R.id.drawerLayout)
         val navigationView = findViewById<NavigationView>(R.id.navView)
 
-        //Temporary buttons for navigating in the app
+        //Buttons for navigating in the app
         var homeButton: ImageButton = findViewById(R.id.homeButton)
         var favoriteButton: ImageButton = findViewById(R.id.favoriteButton)
         var profileButton: ImageButton = findViewById(R.id.profileButton)
@@ -94,6 +101,7 @@ class MainActivity : AppCompatActivity() {
             popupWindow.showAtLocation(it.rootView, Gravity.CENTER, 0, 0)
         }
         popupWindow.dismiss()
+        // Hides action bar
         if (supportActionBar != null) {
             supportActionBar!!.hide()
         }
@@ -118,7 +126,7 @@ class MainActivity : AppCompatActivity() {
                     true
                 }
                 R.id.homeItem -> {
-                    val intent = Intent(this, StartScreenActivity::class.java).apply {
+                    val intent = Intent(this, MainActivity::class.java).apply {
                     }
                     startActivity(intent);
                     true

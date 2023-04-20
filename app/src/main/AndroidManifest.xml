@@ -14,13 +14,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RecipeApp"
         tools:targetApi="31">
-
+        <activity
+            android:name=".RecipeAddActivity"
+            android:exported="false" />
         <activity
             android:name=".Signup"
             android:exported="false">
-        <meta-data
-            android:name="android.app.lib_name"
-            android:value="" />
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
         </activity>
         <activity
             android:name=".ProfileActivity"
@@ -28,9 +30,11 @@
         <activity
             android:name=".RecipeActivity"
             android:label="@string/app_name" />
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
+
+        <meta-data
+            android:name="android.app.lib_name"
+            android:value="" />
+
         <activity
             android:name=".MainActivity"
             android:exported="false">
@@ -38,7 +42,6 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
         <activity
             android:name=".LoginActivity"
             android:exported="false">
@@ -60,4 +63,5 @@
                 android:value="" />
         </activity>
     </application>
+
 </manifest>

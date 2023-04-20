@@ -24,7 +24,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView5">
+            app:layout_constraintTop_toBottomOf="@+id/include">
 
             <ImageButton
                 android:id="@+id/homeButton"
@@ -102,7 +102,7 @@
             app:layout_constraintTop_toTopOf="@+id/imageView2" />
 
         <ImageButton
-            android:id="@+id/buMenu"
+            android:id="@+id/buMenuRecipe"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="#00FFFFFF"
@@ -130,6 +130,7 @@
 
 
         <include
+            android:id="@+id/include"
             layout="@layout/horizontal_scroll_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -150,6 +151,31 @@
             app:layout_constraintTop_toBottomOf="@+id/textView5">
 
         </SearchView>
+
+        <ImageButton
+            android:id="@+id/buRecipeAdd"
+            android:layout_width="139dp"
+            android:layout_height="37dp"
+            android:background="#00FFFFFF"
+            app:layout_constraintBottom_toTopOf="@+id/include"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.056"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView2"
+            app:layout_constraintVertical_bias="0.865"
+            app:srcCompat="@drawable/radius" />
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="+ Uusi resepti"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@+id/buRecipeAdd"
+            app:layout_constraintEnd_toEndOf="@+id/buRecipeAdd"
+            app:layout_constraintStart_toStartOf="@+id/buRecipeAdd"
+            app:layout_constraintTop_toTopOf="@+id/buRecipeAdd" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

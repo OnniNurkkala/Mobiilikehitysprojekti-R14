@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RecipeAddActivity"
+    android:background="@color/gray"
+    android:id="@+id/drawerLayout">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity"
+        android:background="@color/gray"
+        tools:ignore="ExtraText">
+
+        <ImageButton
+            android:id="@+id/buMenuRecipe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#00FFFFFF"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.058"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.035"
+            app:srcCompat="@drawable/hamburgericon"/>
+
+        <EditText
+            android:id="@+id/editTextRecipeName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Reseptin nimi"
+            android:inputType="text"
+            android:textColor="#000000"
+            android:textColorHighlight="#000000"
+            android:textColorHint="#000000"
+            android:textColorLink="#000000"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.447"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.221" />
+
+        <EditText
+            android:id="@+id/editTextIngredient"
+            android:layout_width="210dp"
+            android:layout_height="210dp"
+            android:ems="10"
+            android:hint="Ainesosat"
+            android:inputType="text"
+            android:textColorHint="#000000"
+            app:layout_constraintEnd_toEndOf="@+id/editTextRecipeName"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/editTextRecipeName"
+            app:layout_constraintTop_toBottomOf="@+id/editTextRecipeName" />
+
+        <EditText
+            android:id="@+id/editTextInstructions"
+            android:layout_width="211dp"
+            android:layout_height="213dp"
+            android:ems="10"
+            android:hint="Valmistusohjeet"
+            android:inputType="text"
+            android:textColorHint="#000000"
+            app:layout_constraintEnd_toEndOf="@+id/editTextIngredient"
+            app:layout_constraintStart_toStartOf="@+id/editTextIngredient"
+            app:layout_constraintTop_toBottomOf="@+id/editTextIngredient" />
+
+        <ImageButton
+            android:id="@+id/imageButton"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginTop="48dp"
+            android:background="#00FFFFFF"
+            android:scaleType="centerInside"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.957"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextInstructions"
+            app:srcCompat="@drawable/save_64" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navView"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        app:headerLayout="@layout/nav_header"
+        app:menu="@menu/menu"
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true">
+    </com.google.android.material.navigation.NavigationView>
+
+</androidx.drawerlayout.widget.DrawerLayout>
+
