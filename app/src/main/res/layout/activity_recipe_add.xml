@@ -34,7 +34,6 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Reseptin nimi"
-            android:inputType="text"
             android:textColor="#000000"
             android:textColorHighlight="#000000"
             android:textColorHint="#000000"
@@ -52,7 +51,6 @@
             android:layout_height="210dp"
             android:ems="10"
             android:hint="Ainesosat"
-            android:inputType="text"
             android:textColorHint="#000000"
             app:layout_constraintEnd_toEndOf="@+id/editTextRecipeName"
             app:layout_constraintHorizontal_bias="0.0"
@@ -65,7 +63,6 @@
             android:layout_height="213dp"
             android:ems="10"
             android:hint="Valmistusohjeet"
-            android:inputType="text"
             android:textColorHint="#000000"
             app:layout_constraintEnd_toEndOf="@+id/editTextIngredient"
             app:layout_constraintStart_toStartOf="@+id/editTextIngredient"
@@ -78,12 +75,14 @@
             android:layout_marginTop="48dp"
             android:background="#00FFFFFF"
             android:scaleType="centerInside"
+            android:onClick="saveRecipe"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.957"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editTextInstructions"
             app:srcCompat="@drawable/save_64" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

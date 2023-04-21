@@ -9,7 +9,7 @@ import android.database.sqlite.SQLiteOpenHelper
 class DBhelper(context: Context): SQLiteOpenHelper(context,DATABASE_NAME,null,DATABASE_VERSION) {
     companion object {
         private val DATABASE_VERSION = 1
-        private val DATABASE_NAME = "TestDatabase"
+        private val DATABASE_NAME = "RecipeAppDB"
         private val TABLE_CONTACTS = "UserTable"
         private val TABLE_RECIPES = "RecipeTable"
         private val KEY_RECIPE_ID = "recipe_id"
@@ -100,6 +100,23 @@ class DBhelper(context: Context): SQLiteOpenHelper(context,DATABASE_NAME,null,DA
         val success = db.delete(TABLE_CONTACTS, "${KEY_ID} = ?", arrayOf(userID.toString()))
         db.close()
         return success
+    }
+
+    fun getRecipeById(recipeId: Int): RecipeClass? {
+        val db = this.readableDatabase
+        var recipe: RecipeClass? = null
+        val selectQuery = "SELECT * FROM $TABLE_RECIPES WHERE $KEY_RECIPE_ID = $recipeId"
+        val cursor = db.rawQuery(selectQuery, null)
+        if (cursor.moveToFirst()) {
+            val recipeName = cursor.getString(cursor.getColumnIndex(KEY_RECIPE_NAME))
+            val recipe_ing = cursor.getString(cursor.getColumnIndex(KEY_RECIPE_INGREDIENTS))
+            val recipe_inst = cursor.getString(cursor.getColumnIndex(KEY_RECIPE_INSTRUCTIONS))
+            val recipe_id = cursor.getInt(cursor.getColumnIndex(KEY_RECIPE_ID))
+            recipe = RecipeClass(recipe_id, recipeName, recipe_ing, recipe_inst)
+        }
+        cursor.close()
+        db.close()
+        return recipe
     }
 
 }
