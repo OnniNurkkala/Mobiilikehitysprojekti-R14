@@ -4,14 +4,14 @@
     <item
         android:id="@+id/userItem"
         android:icon="@drawable/icons8_user_48"
-        android:title="Profile" />
+        android:title="Profiilli" />
     <item
         android:id="@+id/favoriteItem"
         android:icon="@drawable/icons8_favorite_32"
-        android:title="Favorites" />
+        android:title="Suosikit" />
     <item
         android:id="@+id/homeItem"
         android:icon="@drawable/icons8_home_48"
-        android:title="Home" />
+        android:title="Koti" />
 
 </menu>

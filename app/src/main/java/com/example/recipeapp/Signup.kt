@@ -49,21 +49,21 @@ class Signup : AppCompatActivity() {
 
 
             if (TextUtils.isEmpty(unametext) || TextUtils.isEmpty(pwordtext) || TextUtils.isEmpty(cpwordtext)){
-                Toast.makeText(this, "Add Username, password & Confirm Password", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Lisää käyttäjänimi, salasana & syötä salasana uudestaan", Toast.LENGTH_SHORT).show()
             }
             else{
                 if (pwordtext.equals(cpwordtext)){
                     if (savedata != -1L) {
-                        Toast.makeText(this, "Signup Successful", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, "Kirjautuminen onnistui", Toast.LENGTH_SHORT).show()
                         val intent = Intent(applicationContext, LoginActivity::class.java)
                         startActivity(intent)
                     }
                     else {
-                        Toast.makeText(this, "Username Exists", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, "Käyttäjänimi on jo käytössä", Toast.LENGTH_SHORT).show()
                     }
                 }
                 else{
-                    Toast.makeText(this, "Password Not Match", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Salasanat eivät täsmää", Toast.LENGTH_SHORT).show()
                 }
             }
         }

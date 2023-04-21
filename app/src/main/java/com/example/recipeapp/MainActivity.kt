@@ -75,11 +75,10 @@ class MainActivity : AppCompatActivity() {
 
         //Button for navigating to RecipeAddActivity
         val recipeAddButton = findViewById<ImageButton>(R.id.buRecipeAdd)
-        recipeAddButton.setOnClickListener{
+        recipeAddButton.setOnClickListener {
             val intent = Intent(this, RecipeAddActivity::class.java)
             startActivity(intent)
         }
-
 
 
         //Menu definitions
@@ -95,7 +94,12 @@ class MainActivity : AppCompatActivity() {
         //Popup menu definitions
         val inflater = getSystemService(LAYOUT_INFLATER_SERVICE) as LayoutInflater
         val popupView = inflater.inflate(R.layout.popup_layout, null)
-        val popupWindow = PopupWindow(popupView, WindowManager.LayoutParams.WRAP_CONTENT, WindowManager.LayoutParams.WRAP_CONTENT, true)
+        val popupWindow = PopupWindow(
+            popupView,
+            WindowManager.LayoutParams.WRAP_CONTENT,
+            WindowManager.LayoutParams.WRAP_CONTENT,
+            true
+        )
 
         val aboutButton = findViewById<ImageButton>(R.id.BU_about)
         aboutButton.setOnClickListener {
@@ -147,75 +151,95 @@ class MainActivity : AppCompatActivity() {
             }
             startActivity(intent);
         }
-        profileButton.setOnClickListener{
+        profileButton.setOnClickListener {
             val intent = Intent(this, ProfileActivity::class.java).apply {
             }
             startActivity(intent);
-    }
+        }
 
-    //Inflate the hamburger menu
-    fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.menu, menu)
-        return true
-    }
-    fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            R.id.favoriteItem -> {
-                Toast.makeText(this, "Favorite selected", Toast.LENGTH_SHORT).show()
+        //Inflate the hamburger menu
+        fun onCreateOptionsMenu(menu: Menu?): Boolean {
+            menuInflater.inflate(R.menu.menu, menu)
+            return true
+        }
 
-                val intent = Intent(this, LoginActivity::class.java).apply {
+        fun onOptionsItemSelected(item: MenuItem): Boolean {
+            when (item.itemId) {
+                R.id.favoriteItem -> {
+                    val intent = Intent(this, LoginActivity::class.java).apply {
+                    }
+                    startActivity(intent);
+                    return true
                 }
-                startActivity(intent);
-                return true
-            }
-            R.id.userItem -> {
-                Toast.makeText(this, "User selected", Toast.LENGTH_SHORT).show()
-
-                val intent = Intent(this, StartScreenActivity::class.java)
-                startActivity(intent)
-                return true
-            }
-            R.id.homeItem -> {
-                Toast.makeText(this, "Home selected", Toast.LENGTH_SHORT).show()
-
-                val intent = Intent(this, StartScreenActivity::class.java).apply {
+                R.id.userItem -> {
+                    val intent = Intent(this, StartScreenActivity::class.java)
+                    startActivity(intent)
+                    return true
                 }
-                startActivity(intent);
-                return true
+                R.id.homeItem -> {
+                    val intent = Intent(this, MainActivity::class.java).apply {
+                    }
+                    startActivity(intent);
+                    return true
+                }
+                else -> return super.onOptionsItemSelected(item)
             }
-            else -> return super.onOptionsItemSelected(item)
         }
-    }
 
 
-    fun saveRecord(view: View){
-        val name = editTextUsername.text.toString()
-        val pass = editTextTextPassword.text.toString()
-        val databaseHandler: DBhelper = DBhelper(this)
-        if (name.trim()!="" && pass.trim()!=""){
-            val status = databaseHandler.insertdata(EmpModelClass(name,pass))
-            if(status > -1){
-                Toast.makeText(applicationContext, "Saved!", Toast.LENGTH_SHORT).show()
-                editTextUsername.text.clear()
+        fun saveRecord(view: View) {
+            val name = editTextUsername.text.toString()
+            val pass = editTextTextPassword.text.toString()
+            val databaseHandler: DBhelper = DBhelper(this)
+            if (name.trim() != "" && pass.trim() != "") {
+                val status = databaseHandler.insertdata(EmpModelClass(name, pass))
+                if (status > -1) {
+                    Toast.makeText(applicationContext, "Tallennettu!", Toast.LENGTH_SHORT).show()
+                    editTextUsername.text.clear()
+                }
+            } else {
+                Toast.makeText(
+                    applicationContext,
+                    "Käyttäjänimi tai salasana ei voi olla tyhjä!",
+                    Toast.LENGTH_SHORT
+                ).show()
             }
-        }else {
-            Toast.makeText(applicationContext, "Username or password can't be blank!", Toast.LENGTH_SHORT).show()
-        }
-    }
-    }
-
-    fun deleteRecord(userID: Int){
-        val databaseHandler: DBhelper = DBhelper(this)
-        val status = databaseHandler.deleteUser(userID)
-        if(status > -1) {
-            Toast.makeText(applicationContext, "Poistettu", Toast.LENGTH_SHORT).show()
-            IdDelete.text.clear()
-        } else {
-            Toast.makeText(applicationContext, "Virhe tapahtui", Toast.LENGTH_SHORT).show()
         }
 
-    }
+        fun saveRecipe(view: View) {
+            val recipeName = editTextUsername.text.toString()
+            val recipe_ing = editTextTextPassword.text.toString()
+            val recipe_inst = editTextUsername.text.toString()
+            val databaseHandler: DatabaseHandler = DatabaseHandler(this)
+            if (recipeName.trim() != "" && recipe_ing.trim() != "" && recipe_inst.trim() != "") {
+                val status =
+                    databaseHandler.addRecipe(RecipeClass(-1, recipeName, recipe_ing, recipe_inst))
+                if (status > -1) {
+                    Toast.makeText(applicationContext, "Tallennettu", Toast.LENGTH_SHORT).show()
+                }
+            } else {
+                Toast.makeText(
+                    applicationContext,
+                    "Tekstit eivät voi olla tyhjiä",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
 
+        }
+
+        fun deleteRecord(userID: Int) {
+            val databaseHandler: DBhelper = DBhelper(this)
+            val status = databaseHandler.deleteUser(userID)
+            if (status > -1) {
+                Toast.makeText(applicationContext, "Poistettu", Toast.LENGTH_SHORT).show()
+                IdDelete.text.clear()
+            } else {
+                Toast.makeText(applicationContext, "Virhe tapahtui", Toast.LENGTH_SHORT).show()
+            }
+
+        }
+
+    }
 }
 
 
