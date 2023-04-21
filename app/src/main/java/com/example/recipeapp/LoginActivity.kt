@@ -50,15 +50,15 @@ class LoginActivity : AppCompatActivity() {
             val pwordtx = editpword.text.toString()
 
             if (TextUtils.isEmpty(usertx) || TextUtils.isEmpty(pwordtx)) {
-                Toast.makeText(this, "Add Username & Password", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Anna käyttäjänimi & salasana", Toast.LENGTH_SHORT).show()
             } else {
                 val checkuser = dbh.checkuserpass(EmpModelClass(usertx, pwordtx))
                 if (checkuser == true) {
-                    Toast.makeText(this, "Login Successful", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Kirjautuminen onnistui", Toast.LENGTH_SHORT).show()
                     val intent = Intent(applicationContext, MainActivity::class.java)
                     startActivity(intent)
                 } else {
-                    Toast.makeText(this, "Wrong Username or Password", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Väärä käyttäjänimi ja salasana", Toast.LENGTH_SHORT).show()
                 }
             }
         }

@@ -72,15 +72,15 @@ class ProfileActivity : AppCompatActivity() {
         // Profile name edit button listener
         userNameEditButton.setOnClickListener {
             val builder = AlertDialog.Builder(this)
-            builder.setTitle("Change username")
+            builder.setTitle("Vaihda käyttäjänimi")
             val input = EditText(this)
             input.setText(userNameTextView.text)
             builder.setView(input)
             builder.setPositiveButton("OK") { dialog, which ->
                 userNameTextView.text = input.text.toString()
-                Toast.makeText(this, "Username changed", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Käyttäjänimi vaihdettu", Toast.LENGTH_SHORT).show()
             }
-            builder.setNegativeButton("Cancel") { dialog, which ->
+            builder.setNegativeButton("Peruuta") { dialog, which ->
                 dialog.cancel()
             }
             builder.show()
@@ -88,15 +88,15 @@ class ProfileActivity : AppCompatActivity() {
         // Profile password edit button listener
         passWordEditButton.setOnClickListener {
             val builder = AlertDialog.Builder(this)
-            builder.setTitle("Enter new password")
+            builder.setTitle("Anna uusi salasana")
             val input = EditText(this)
             input.setText("")
             builder.setView(input)
             builder.setPositiveButton("OK") { dialog, which ->
                     passWordTextView.text = input.text.toString()
-                    Toast.makeText(this, "Password changed", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Salasana vaihdettu", Toast.LENGTH_SHORT).show()
             }
-            builder.setNegativeButton("Cancel") { dialog, which ->
+            builder.setNegativeButton("Peruuta") { dialog, which ->
                 dialog.cancel()
             }
             builder.show()

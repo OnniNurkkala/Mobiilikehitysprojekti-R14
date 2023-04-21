@@ -4,7 +4,7 @@
     <string name="app_name">RecipeApp</string>
 
 
-    <string name="open">Open</string>
-    <string name="close">Close</string>
+    <string name="avaa">Open</string>
+    <string name="sulje">Close</string>
 
 </resources>

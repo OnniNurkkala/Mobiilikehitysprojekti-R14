@@ -160,24 +160,18 @@ class MainActivity : AppCompatActivity() {
     fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.favoriteItem -> {
-                Toast.makeText(this, "Favorite selected", Toast.LENGTH_SHORT).show()
-
                 val intent = Intent(this, LoginActivity::class.java).apply {
                 }
                 startActivity(intent);
                 return true
             }
             R.id.userItem -> {
-                Toast.makeText(this, "User selected", Toast.LENGTH_SHORT).show()
-
                 val intent = Intent(this, StartScreenActivity::class.java)
                 startActivity(intent)
                 return true
             }
             R.id.homeItem -> {
-                Toast.makeText(this, "Home selected", Toast.LENGTH_SHORT).show()
-
-                val intent = Intent(this, StartScreenActivity::class.java).apply {
+                val intent = Intent(this, MainActivity::class.java).apply {
                 }
                 startActivity(intent);
                 return true
@@ -194,11 +188,11 @@ class MainActivity : AppCompatActivity() {
         if (name.trim()!="" && pass.trim()!=""){
             val status = databaseHandler.insertdata(EmpModelClass(name,pass))
             if(status > -1){
-                Toast.makeText(applicationContext, "Saved!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(applicationContext, "Tallennettu!", Toast.LENGTH_SHORT).show()
                 editTextUsername.text.clear()
             }
         }else {
-            Toast.makeText(applicationContext, "Username or password can't be blank!", Toast.LENGTH_SHORT).show()
+            Toast.makeText(applicationContext, "Käyttäjänimi tai salasana ei voi olla tyhjä!", Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -213,7 +207,7 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(applicationContext, "Tallennettu", Toast.LENGTH_SHORT).show()
             }
         }else {
-            Toast.makeText(applicationContext, "Texts can't be blank", Toast.LENGTH_SHORT).show()
+            Toast.makeText(applicationContext, "Tekstit eivät voi olla tyhjiä", Toast.LENGTH_SHORT).show()
         }
     }
 
