@@ -44,8 +44,6 @@ class DatabaseHandler(context: Context): SQLiteOpenHelper(context,DATABASE_NAME,
         onCreate(db)
     }
 
-
-
     fun addRecipe(recipe: RecipeClass): Long {
         val db = this.writableDatabase
         val contentValues = ContentValues()

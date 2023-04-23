@@ -115,19 +115,17 @@ class MainActivity : AppCompatActivity() {
             drawerLayout.openDrawer(navigationView)
         }
 
-        // Menu item click listeners
+        // Menu
         navigationView.setNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
+                // Handle click for menu items
                 R.id.userItem -> {
-                    // Handle click for first menu item
                     val intent = Intent(this, ProfileActivity::class.java)
                     startActivity(intent)
                     true
                 }
                 R.id.favoriteItem -> {
-                    val intent = Intent(this, LoginActivity::class.java).apply {
-                    }
-                    startActivity(intent);
+                    Toast.makeText(this, "Suosikit", Toast.LENGTH_SHORT).show()
                     true
                 }
                 R.id.homeItem -> {
@@ -140,16 +138,14 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        //Temporary buttons for navigating in the app
+        //Buttons for navigating the app
         homeButton.setOnClickListener {
             val intent = Intent(this, LoginActivity::class.java).apply {
             }
             startActivity(intent);
         }
         favoriteButton.setOnClickListener {
-            val intent = Intent(this, StartScreenActivity::class.java).apply {
-            }
-            startActivity(intent);
+            Toast.makeText(this, "Suosikit", Toast.LENGTH_SHORT).show()
         }
         profileButton.setOnClickListener {
             val intent = Intent(this, ProfileActivity::class.java).apply {
@@ -166,9 +162,7 @@ class MainActivity : AppCompatActivity() {
         fun onOptionsItemSelected(item: MenuItem): Boolean {
             when (item.itemId) {
                 R.id.favoriteItem -> {
-                    val intent = Intent(this, LoginActivity::class.java).apply {
-                    }
-                    startActivity(intent);
+                    Toast.makeText(this, "suosikit", Toast.LENGTH_SHORT).show()
                     return true
                 }
                 R.id.userItem -> {

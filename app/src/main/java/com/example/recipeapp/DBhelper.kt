@@ -21,6 +21,22 @@ class DBhelper(context: Context): SQLiteOpenHelper(context,DATABASE_NAME,null,DA
         private val KEY_PASS = "password"
 
     }
+
+    fun getUserById(userId: Int): EmpModelClass? {
+        val db = this.readableDatabase
+        var user: EmpModelClass? = null
+        val selectQuery = "SELECT * FROM $TABLE_CONTACTS WHERE $KEY_ID = $userId"
+        val cursor = db.rawQuery(selectQuery, null)
+        if (cursor.moveToFirst()) {
+            val userName = cursor.getString(cursor.getColumnIndex(KEY_NAME))
+            val userPass = cursor.getString(cursor.getColumnIndex(KEY_PASS))
+            user = EmpModelClass(userName,userPass)
+        }
+        cursor.close()
+        db.close()
+        return user
+    }
+
     override fun onCreate(db: SQLiteDatabase?) {
         // TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
         //creating table with fields

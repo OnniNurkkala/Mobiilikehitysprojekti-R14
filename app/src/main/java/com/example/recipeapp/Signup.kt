@@ -54,7 +54,7 @@ class Signup : AppCompatActivity() {
             else{
                 if (pwordtext.equals(cpwordtext)){
                     if (savedata != -1L) {
-                        Toast.makeText(this, "Kirjautuminen onnistui", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, "Rekisteröityminen onnistui", Toast.LENGTH_SHORT).show()
                         val intent = Intent(applicationContext, LoginActivity::class.java)
                         startActivity(intent)
                     }
