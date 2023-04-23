@@ -15,6 +15,7 @@ import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.delete_profile_dialog.*
 import android.widget.TextView
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_recipe_add.*
 
 class MainActivity : AppCompatActivity() {
@@ -209,7 +210,7 @@ class MainActivity : AppCompatActivity() {
         fun saveRecipe(view: View) {
             val recipeName = editTextUsername.text.toString()
             val recipe_ing = editTextTextPassword.text.toString()
-            val recipe_inst = editTextUsername.text.toString()
+            val recipe_inst = editTextInstructions.text.toString()
             val databaseHandler: DatabaseHandler = DatabaseHandler(this)
             if (recipeName.trim() != "" && recipe_ing.trim() != "" && recipe_inst.trim() != "") {
                 val status =
@@ -227,6 +228,11 @@ class MainActivity : AppCompatActivity() {
 
         }
 
+        buRecipeList.setOnClickListener {
+            val intent = Intent(this, RecipeListActivity::class.java)
+            startActivity(intent)
+        }
+
         fun deleteRecord(userID: Int) {
             val databaseHandler: DBhelper = DBhelper(this)
             val status = databaseHandler.deleteUser(userID)
@@ -237,6 +243,11 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(applicationContext, "Virhe tapahtui", Toast.LENGTH_SHORT).show()
             }
 
+        }
+
+        buRecipeList.setOnClickListener {
+            val intent = Intent(this, RecipeListActivity::class.java)
+            startActivity(intent)
         }
 
     }

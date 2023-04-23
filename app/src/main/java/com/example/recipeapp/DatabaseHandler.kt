@@ -9,17 +9,18 @@ import android.database.sqlite.SQLiteOpenHelper
 
 class DatabaseHandler(context: Context): SQLiteOpenHelper(context,DATABASE_NAME,null,DATABASE_VERSION) {
     companion object {
-        private val DATABASE_VERSION = 1
-        private val DATABASE_NAME = "AppDatabase"
-        private val TABLE_CONTACTS = "UserTable"
-        private val TABLE_RECIPES = "RecipeTable"
-        private val KEY_RECIPE_ID = "recipe_id"
-        private val KEY_RECIPE_NAME = "recipeName"
-        private val KEY_RECIPE_INGREDIENTS = "recipe_ing"
-        private val KEY_RECIPE_INSTRUCTIONS = "recipe_inst"
-        private val KEY_ID = "id"
-        private val KEY_NAME = "name"
-        private val KEY_PASS = "password"
+        private const val DATABASE_VERSION = 1
+        private const val DATABASE_NAME = "AppDatabase"
+        private const val TABLE_CONTACTS = "UserTable"
+        private const val TABLE_RECIPES = "RecipeTable"
+        private const val KEY_RECIPE_ID = "recipe_id"
+        private const val KEY_RECIPE_NAME = "recipeName"
+        private const val KEY_RECIPE_INGREDIENTS = "recipe_ing"
+        private const val KEY_RECIPE_INSTRUCTIONS = "recipe_inst"
+        private const val KEY_ID = "id"
+        private const val KEY_NAME = "name"
+        private const val KEY_PASS = "password"
+
 
     }
     override fun onCreate(db: SQLiteDatabase?) {
@@ -106,7 +107,7 @@ class DatabaseHandler(context: Context): SQLiteOpenHelper(context,DATABASE_NAME,
         contentValues.put(KEY_RECIPE_NAME, recipe.recipeName)
         contentValues.put(KEY_RECIPE_INGREDIENTS, recipe.recipe_ing)
         contentValues.put(KEY_RECIPE_INSTRUCTIONS, recipe.recipe_inst)
-        val success = db.update(TABLE_RECIPES, contentValues, "recipe"+ recipe.recipeName, null)
+        val success = db.update(TABLE_RECIPES, contentValues, "$KEY_RECIPE_NAME=?", arrayOf(recipe.recipeName))
         db.close()
         return success
     }
@@ -116,6 +117,11 @@ class DatabaseHandler(context: Context): SQLiteOpenHelper(context,DATABASE_NAME,
         val success = db.delete(TABLE_CONTACTS, "$KEY_ID = ?", arrayOf(userID.toString()))
         db.close()
         return success
+    }
+
+    fun getRecipes(): Cursor {
+        val db = this.readableDatabase
+        return db.rawQuery("SELECT * FROM $TABLE_RECIPES", null)
     }
 
 }

@@ -1,5 +1,6 @@
 package com.example.recipeapp
 
+import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -68,18 +69,20 @@ class RecipeAddActivity : AppCompatActivity() {
         }
     }
 
-    fun saveRecipe(view: View){
+    fun saveRecipe(view: View) {
+        // Get the recipe information from the EditTexts
         val recipeName = editTextRecipeName.text.toString()
-        val recipe_ing = editTextIngredient.text.toString()
-        val recipe_inst = editTextInstructions.text.toString()
-        val databaseHandler: DBhelper = DBhelper(this)
-        if (recipeName.trim()!="" && recipe_ing.trim()!="" && recipe_inst.trim()!=""){
-            val status = databaseHandler.addRecipe(RecipeClass(-1, recipeName,recipe_ing,recipe_inst))
-            if (status > -1){
-                Toast.makeText(applicationContext, "Tallennettu", Toast.LENGTH_SHORT).show()
-            }
-        }else {
-            Toast.makeText(applicationContext, "Texts can't be blank", Toast.LENGTH_SHORT).show()
+        val ingredients = editTextIngredient.text.toString()
+        val instructions = editTextInstructions.text.toString()
+
+        // Create an intent to launch the RecipeDisplayActivity
+        val intent = Intent(this, RecipeDisplayActivity::class.java).apply {
+            putExtra("recipeName", recipeName)
+            putExtra("ingredients", ingredients)
+            putExtra("instructions", instructions)
         }
+
+        // Launch the RecipeDisplayActivity
+        startActivity(intent)
     }
 }

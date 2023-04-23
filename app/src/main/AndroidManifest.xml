@@ -17,6 +17,8 @@
         <activity
             android:name=".RecipeAddActivity"
             android:exported="false" />
+        <activity android:name=".RecipeListActivity" />
+        <activity android:name=".RecipeDisplayActivity" />
         <activity
             android:name=".Signup"
             android:exported="false">
