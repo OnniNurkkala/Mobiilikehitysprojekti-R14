@@ -10,20 +10,20 @@
         android:padding="16dp">
 
         <TextView
-            android:id="@+id/recipe_name"
+            android:id="@+id/recipeNameTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="24sp"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/recipe_ingredients"
+            android:id="@+id/ingredientsTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="18sp" />
 
         <TextView
-            android:id="@+id/recipe_steps"
+            android:id="@+id/instructionsTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="18sp" />

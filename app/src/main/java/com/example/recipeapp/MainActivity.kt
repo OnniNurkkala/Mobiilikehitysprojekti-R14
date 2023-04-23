@@ -207,10 +207,11 @@ class MainActivity : AppCompatActivity() {
             val recipe_inst = editTextInstructions.text.toString()
             val databaseHandler: DatabaseHandler = DatabaseHandler(this)
             if (recipeName.trim() != "" && recipe_ing.trim() != "" && recipe_inst.trim() != "") {
-                val status =
-                    databaseHandler.addRecipe(RecipeClass(-1, recipeName, recipe_ing, recipe_inst))
-                if (status > -1) {
+                val success = databaseHandler.addRecipe(RecipeClass(-1, recipeName, recipe_ing, recipe_inst))
+                if (success) {
                     Toast.makeText(applicationContext, "Tallennettu", Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(applicationContext, "Tallennus epäonnistui", Toast.LENGTH_SHORT).show()
                 }
             } else {
                 Toast.makeText(
@@ -219,7 +220,6 @@ class MainActivity : AppCompatActivity() {
                     Toast.LENGTH_SHORT
                 ).show()
             }
-
         }
 
         buRecipeList.setOnClickListener {

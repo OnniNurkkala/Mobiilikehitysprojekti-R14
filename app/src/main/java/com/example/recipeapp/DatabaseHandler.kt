@@ -45,15 +45,15 @@ class DatabaseHandler(context: Context): SQLiteOpenHelper(context,DATABASE_NAME,
         onCreate(db)
     }
 
-    fun addRecipe(recipe: RecipeClass): Long {
+    fun addRecipe(recipe: RecipeClass): Boolean {
         val db = this.writableDatabase
-        val contentValues = ContentValues()
-        contentValues.put(KEY_RECIPE_NAME, recipe.recipeName)
-        contentValues.put(KEY_RECIPE_INGREDIENTS, recipe.recipe_ing)
-        contentValues.put(KEY_RECIPE_INSTRUCTIONS, recipe.recipe_inst)
-        val success = db.insert(TABLE_RECIPES, null, contentValues)
+        val values = ContentValues()
+        values.put(KEY_RECIPE_NAME, recipe.recipeName)
+        values.put(KEY_RECIPE_INGREDIENTS, recipe.recipe_ing)
+        values.put(KEY_RECIPE_INSTRUCTIONS, recipe.recipe_inst)
+        val success = db.insert(TABLE_RECIPES, null, values)
         db.close()
-        return success
+        return success != -1L // return true if the insert was successful, false otherwise
     }
     fun addUser(emp: EmpModelClass):Long{
         val db = this.writableDatabase

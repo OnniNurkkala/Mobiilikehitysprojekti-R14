@@ -70,19 +70,23 @@ class RecipeAddActivity : AppCompatActivity() {
     }
 
     fun saveRecipe(view: View) {
-        // Get the recipe information from the EditTexts
         val recipeName = editTextRecipeName.text.toString()
         val ingredients = editTextIngredient.text.toString()
         val instructions = editTextInstructions.text.toString()
 
-        // Create an intent to launch the RecipeDisplayActivity
-        val intent = Intent(this, RecipeDisplayActivity::class.java).apply {
-            putExtra("recipeName", recipeName)
-            putExtra("ingredients", ingredients)
-            putExtra("instructions", instructions)
-        }
+        val databaseHandler = DatabaseHandler(this)
+        val status: Boolean = databaseHandler.addRecipe(RecipeClass(-1, recipeName, ingredients, instructions))
 
-        // Launch the RecipeDisplayActivity
-        startActivity(intent)
+        if (status) {
+            Toast.makeText(applicationContext, "Recipe saved", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, RecipeDisplayActivity::class.java).apply {
+                putExtra("recipeName", recipeName)
+                putExtra("ingredients", ingredients)
+                putExtra("instructions", instructions)
+            }
+            startActivity(intent)
+        } else {
+            Toast.makeText(applicationContext, "Error saving recipe", Toast.LENGTH_SHORT).show()
+        }
     }
 }

@@ -40,7 +40,7 @@ class RecipeListActivity : AppCompatActivity() {
                 if (recipe != null) {
                     // Add the new recipe to the list and notify the adapter
                     recipeList.add(recipe)
-                    recipeListAdapter.notifyDataSetChanged()
+                    recipeListAdapter.notifyItemInserted(recipeList.size - 1)
                 }
             }
         }
